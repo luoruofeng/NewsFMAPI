@@ -1,4 +1,4 @@
 EDITOR = vi;export EDITOR
 
 
-* */1 * * * /bin/scrapy crawl huxiu >> /scrapy.log
+cd /NewsFMAPI/news_scrapy/newspider && * */1 * * * /bin/bash run.sh
