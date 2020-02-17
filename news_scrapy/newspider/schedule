@@ -1,0 +1,4 @@
+EDITOR = vi;export EDITOR
+
+
+* */1 * * * /bin/scrapy crawl huxiu >> /scrapy.log
