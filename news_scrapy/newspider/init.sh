@@ -6,6 +6,7 @@ pip install --upgrade pip
 pip install html2text
 pip install scrapy
 pip install pymongo
+pip install Twisted
 
 systemctl start mongod
 systemctl start crond

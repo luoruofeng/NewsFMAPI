@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11f73632-dca6-4202-a876-7d064f26f01f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/newspider/init.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newspider/run.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/newspider/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/newspider/newspider/spiders/first_huxiu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newspider/schedule" beforeDir="false" afterPath="$PROJECT_DIR$/newspider/schedule" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newspider/start.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspider/init.sh" beforeDir="false" afterPath="$PROJECT_DIR$/newspider/init.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,31 +16,43 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newspider/newspider/pipelines.py">
+        <entry file="file://$PROJECT_DIR$/newspider/schedule">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
-              <folding>
-                <element signature="e#194#210#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="57">
+              <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/newspider/schedule">
+        <entry file="file://$PROJECT_DIR$/newspider/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+            <state relative-caret-position="121">
+              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newspider/run.sh">
+        <entry file="file://C:/apps/Anaconda/Lib/site-packages/scrapy/http/request/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            <state relative-caret-position="99">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newspider/newspider/spiders/first_huxiu.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="82">
+              <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+              <folding>
+                <element signature="e#24#37#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,35 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newspider/init.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/re.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5358">
-              <caret line="285" column="23" selection-start-line="285" selection-start-column="23" selection-end-line="285" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/sre_compile.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14364">
-              <caret line="758" column="20" selection-start-line="758" selection-start-column="15" selection-end-line="758" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/html2text/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9025">
-              <caret line="499" column="60" selection-start-line="499" selection-start-column="47" selection-end-line="499" selection-end-column="60" />
+            <state relative-caret-position="171">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -94,7 +78,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newspider/newspider/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1311">
+            <state relative-caret-position="235">
               <caret line="69" column="48" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
             </state>
           </provider>
@@ -104,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/newspider/newspider/spiders/test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="29" column="103" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="103" />
+              <caret line="29" column="103" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="103" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -123,10 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>process_request</find>
-      <find>UserAgentMiddleware</find>
-      <find>DOWNLOADER_MIDDLEWARES</find>
-      <find>agent</find>
       <find>converter</find>
       <find>DUPEFILTER</find>
       <find>newsp</find>
@@ -146,12 +126,16 @@
       <find>（</find>
       <find>Print</find>
       <find>S</find>
-      <find>S</find>
       <find>sub(</find>
       <find>compile(pattern, flags)</find>
       <find>)</find>
       <find>short</find>
       <find>findall</find>
+      <find>user</find>
+      <find>to_bytes</find>
+      <find>body</find>
+      <find>join</find>
+      <find>2</find>
       <find>print</find>
     </findStrings>
   </component>
@@ -171,9 +155,11 @@
         <option value="$PROJECT_DIR$/newspider/newspider/pipelines.py" />
         <option value="$PROJECT_DIR$/newspider/newspider/schedule.sh" />
         <option value="$PROJECT_DIR$/newspider/start.sh" />
-        <option value="$PROJECT_DIR$/newspider/init.sh" />
         <option value="$PROJECT_DIR$/newspider/run.sh" />
         <option value="$PROJECT_DIR$/newspider/schedule" />
+        <option value="$PROJECT_DIR$/newspider/init.sh" />
+        <option value="$PROJECT_DIR$/newspider/newspider/spiders/first_huxiu.py" />
+        <option value="$PROJECT_DIR$/newspider/main.py" />
       </list>
     </option>
   </component>
@@ -205,6 +191,19 @@
             </path>
             <path>
               <item name="news_scrapy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_scrapy" type="462c0819:PsiDirectoryNode" />
+              <item name="newspider" type="462c0819:PsiDirectoryNode" />
+              <item name="newspider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news_scrapy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_scrapy" type="462c0819:PsiDirectoryNode" />
+              <item name="newspider" type="462c0819:PsiDirectoryNode" />
+              <item name="newspider" type="462c0819:PsiDirectoryNode" />
+              <item name="spiders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news_scrapy" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -216,9 +215,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\luoru\Desktop\news\news_scrapy\newspider\newspider\spiders" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\luoru\Desktop\news\news_scrapy\newspider" />
     </key>
@@ -235,7 +238,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="news_scrapy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/newspider" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/newspider/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="t" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="news_scrapy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -259,6 +283,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.t" />
       </list>
     </recent_temporary>
@@ -280,12 +305,12 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4937833" visible="true" weight="0.21683876" />
-      <window_info id="Structure" order="1" sideWeight="0.5062167" side_tool="true" visible="true" weight="0.21683876" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.489418" visible="true" weight="0.21683876" />
+      <window_info id="Structure" order="1" sideWeight="0.50923485" side_tool="true" weight="0.21683876" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3285968" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42095914" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49960285" weight="0.40319717" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -339,6 +364,22 @@
       </map>
     </option>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/newspider/newspider/spiders/first_huxiu.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/newspider/newspider/spiders/first_huxiu.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/newspider/newspider/spiders/t.py" />
     <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/parsel/selector.py">
@@ -362,13 +403,6 @@
           <folding>
             <element signature="e#24#37#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/scrapy/http/request/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -399,26 +433,6 @@
           <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
           <folding>
             <element signature="e#153#166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspider/newspider/spiders/huxiu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="42" column="93" selection-start-line="42" selection-start-column="92" selection-end-line="42" selection-end-column="93" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspider/newspider/middlewares.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-671">
-          <caret line="78" column="27" lean-forward="true" selection-start-line="78" selection-start-column="27" selection-end-line="78" selection-end-column="27" />
-          <folding>
-            <element signature="e#169#195#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -468,27 +482,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newspider/newspider/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="69" column="48" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/newspider/newspider/spiders/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
-          <caret line="29" column="103" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="103" />
+          <caret line="29" column="103" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="103" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newspider/init.sh">
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-319545905/time.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
+        <state relative-caret-position="107">
+          <caret line="163" column="4" selection-start-line="163" selection-start-column="4" selection-end-line="163" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspider/newspider/middlewares.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="77" column="41" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="41" />
+          <folding>
+            <element signature="e#169#195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspider/newspider/spiders/huxiu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="31" column="81" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="31" selection-end-column="81" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspider/newspider/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="69" column="48" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/scrapy/http/request/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="70" column="28" lean-forward="true" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-319545905/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="4742" column="8" selection-start-line="4742" selection-start-column="8" selection-end-line="4742" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/scrapy/utils/python.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="121" column="19" lean-forward="true" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/scrapy/http/request/form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="33" column="40" lean-forward="true" selection-start-line="33" selection-start-column="40" selection-end-line="34" selection-end-column="17" />
+          <folding>
+            <element signature="e#198#208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspider/schedule">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -499,10 +571,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newspider/schedule">
+    <entry file="file://C:/apps/Anaconda/Lib/site-packages/scrapy/http/request/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+        <state relative-caret-position="99">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspider/init.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspider/newspider/spiders/first_huxiu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspider/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
