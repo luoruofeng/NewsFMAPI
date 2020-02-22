@@ -1,7 +1,6 @@
 import sys
 import os
 from scrapy.cmdline import execute
-from apscheduler.schedulers.blocking import BlockingScheduler
 import time
 import subprocess
 
