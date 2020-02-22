@@ -2,6 +2,7 @@
 import sys
 import json
 import os
+import time
 import errno
 IS_PY3 = sys.version_info.major == 3
 if IS_PY3:
@@ -10,8 +11,17 @@ if IS_PY3:
     from urllib.error import URLError
     from urllib.parse import urlencode
     from urllib.parse import quote_plus
-
+import json
 from aip import AipSpeech
+import threading
+
+"""
+这个程序（进程）将一直去读取pipe（有名管道）
+将管道中的json转成dict，并将文章内容转化为音频
+将过长的文章转化为多个音频后，进行合并（ffmpeg）
+
+百度api语言在线合成的QPS是10个（企业认证），也就是可以启动10根线程同时转化音频
+"""
 
 """ 你的 APPID AK SK """
 APP_ID = '18537748'
@@ -20,10 +30,9 @@ SECRET_KEY = 'wbxfMAdQRD6YnnMFNldGWSOvjGVl9w4i'
 
 client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
 
-TEXT = "欢迎使用百度语音合成。"
+MAX_FONT = 2048
 
 # 发音人选择, 基础音库：0为度小美，1为度小宇，3为度逍遥，4为度丫丫，
-# 精品音库：5为度小娇，103为度米朵，106为度博文，110为度小童，111为度小萌，默认为度小美
 PER = 0
 # 语速，取值0-15，默认为5中语速
 SPD = 6
@@ -38,19 +47,21 @@ FORMATS = {3: "mp3", 4: "pcm", 5: "pcm", 6: "wav"}
 FORMAT = FORMATS[AUE]
 
 CUID = "123456PYTHON"
-
 TTS_URL = 'http://tsn.baidu.com/text2audio'
 
+#pipe路径
+FIFO = "/article_pipe"
+#音频保存路径
+VOICE_DIR = "/voice/"
+#音频格式
+FORMAT = ".mp3"
 
 class DemoError(Exception):
     pass
 
 
-"""  TOKEN start """
-
 TOKEN_URL = 'http://openapi.baidu.com/oauth/2.0/token'
 SCOPE = 'audio_tts_post'  # 有此scope表示有tts能力，没有请在网页里勾选
-
 
 def fetch_token():
     print("fetch token begin")
@@ -70,25 +81,18 @@ def fetch_token():
     if (IS_PY3):
         result_str = result_str.decode()
 
-    print(result_str)
     result = json.loads(result_str)
-    print(result)
     if ('access_token' in result.keys() and 'scope' in result.keys()):
         if not SCOPE in result['scope'].split(' '):
             raise DemoError('scope is not correct')
-        print('SUCCESS WITH TOKEN: %s ; EXPIRES IN SECONDS: %s' % (result['access_token'], result['expires_in']))
         return result['access_token']
     else:
-        raise DemoError('MAYBE API_KEY or SECRET_KEY not correct: access_token or scope not found in token response')
+        pass
 
 
 """  TOKEN end """
 
-if __name__ == '__main__':
-    token = fetch_token()
-    params = {'tok': token, 'tex': TEXT, 'per': PER, 'spd': SPD, 'pit': PIT, 'vol': VOL, 'aue': AUE, 'cuid': CUID,
-              'lan': 'zh', 'ctp': 1}  # lan ctp 固定参数
-
+def baidu_voice(params):
     data = urlencode(params)
     print('test on Web Browser' + TTS_URL + '?' + data)
 
@@ -101,18 +105,77 @@ if __name__ == '__main__':
         headers = dict((name.lower(), value) for name, value in f.headers.items())
 
         has_error = ('content-type' not in headers.keys() or headers['content-type'].find('audio/') < 0)
-    except URLError as err:
+    except  URLError as err:
         print('asr http response http code : ' + str(err.code))
         result_str = err.read()
         has_error = True
 
-    save_file = "error.txt" if has_error else 'result.' + FORMAT
+    return result_str,has_error
+
+#保存对象为音频
+def opt(obj):
+    # json字符串 转 dict
+    obj_dict = json.loads(obj, encoding="UTF-8")
+    tex = obj_dict["content"]
+    title = obj_dict["title"]
+
+    # 分割文字  百度能接受的最大长度是2048
+    counter = 1
+    current_index = 0
+    while True:
+        if (len(tex) <= MAX_FONT):
+            subtitle = title
+        else:
+            subtitle = title + str(counter)
+        counter += 1
+
+        part_text = tex[current_index:current_index + MAX_FONT]
+        current_index += MAX_FONT
+        if (part_text == ""):
+            break
+
+        params = {'tok': token, 'tex': part_text, 'per': PER, 'spd': SPD, 'pit': PIT, 'vol': VOL, 'aue': AUE,
+                  'cuid': CUID, 'lan': 'zh', 'ctp': 1}  # lan ctp 固定参数
+
+    result_str, has_error = baidu_voice(params)
+
+    # 音频文件 保存
+    save_file = "error.txt" if has_error else VOICE_DIR + subtitle + FORMAT
     with open(save_file, 'wb') as of:
         of.write(result_str)
 
     if has_error:
-        if (IS_PY3):
-            result_str = str(result_str, 'utf-8')
+        result_str = str(result_str, 'utf-8')
         print("tts api  error:" + result_str)
 
-    print("result saved as :" + save_file)
+    print("result saved as :" + subtitle)
+
+def loopPipe():
+    # 循环读取pipe管道中的json
+    while True:
+        with open(FIFO, 'r') as rf:
+            obj = rf.read()
+        opt(obj)
+
+if __name__ == '__main__':
+    #创建文件夹存放音频文件
+    if(os.path.exists(VOICE_DIR) == False):
+        os.mkdir(VOICE_DIR)
+
+    try:
+        os.mkfifo(FIFO)
+    except OSError as e:
+        if (e.errno != errno.EEXIST):
+            raise
+
+    #baidu voice
+    token = fetch_token()
+    has_error = None
+
+    loopPipe()
+    #可以使用10个线程进行转化
+    # for i in range(10):
+    #     t = threading.Thread(target=loopPipe,args=())
+    #     #非守护线程
+    #     t.setDaemon(False)
+    #     t.start()

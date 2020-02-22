@@ -96,3 +96,4 @@ ITEM_PIPELINES = {
 #mongo
 MONGO_URI='39.108.74.74:27017'
 MONGO_DATABASE='fm'
+FIFO_NAME='/article_pipe'

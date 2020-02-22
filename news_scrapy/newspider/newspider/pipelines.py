@@ -8,7 +8,9 @@
 import html2text
 import pymongo
 import re
-
+import errno
+import os
+import json
 from scrapy.exceptions import DropItem
 
 class NewspiderPipeline(object):
@@ -122,3 +124,33 @@ class DuplicatesPipeline(object):
             raise DropItem("Duplicate item found: %s" % item.get("url"))
         else:
             return item
+
+
+
+
+#将item  序列化为json 发送给pipe（fifo有名管道） 另一个程序（进程）读写进程，并转化为音频
+class FifoPipeline(object):
+    def __init__(self, fifo_name):
+        self.fifo_name = fifo_name
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(
+            fifo_name=crawler.settings.get('FIFO_NAME',"/article_pipe")
+        )
+
+    def open_spider(self, spider):
+        try:
+            os.mkfifo(self.fifo_name)
+        except OSError as e:
+            if (e.errno != errno.EEXIST):
+                raise
+
+    def close_spider(self, spider):
+        pass
+
+    def process_item(self, item, spider):
+        item_str = json.dumps(dict(item),ensure_ascii=False,encoding="UTF-8")
+
+        with open(self.fifo_name, "w") as f:
+            f.write(item_str)

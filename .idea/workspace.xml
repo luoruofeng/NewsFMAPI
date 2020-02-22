@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdde198b-dddb-4ac8-8e09-38dac8e98af6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/voice/baidu_voice.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/voice/t.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_scrapy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/news_scrapy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_scrapy/newspider/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_scrapy/newspider/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voice/baidu.py" beforeDir="false" afterPath="$PROJECT_DIR$/voice/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voice/baidu_voice.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,23 +16,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/voice/baidu_voice.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="79" column="37" lean-forward="true" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
+            <state relative-caret-position="187">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/voice/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="175" column="11" selection-start-line="175" selection-start-column="11" selection-end-line="175" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="149" column="12" lean-forward="true" selection-start-line="149" selection-start-column="12" selection-end-line="149" selection-end-column="12" />
               <folding>
-                <element signature="e#15#25#0" expanded="true" />
+                <element signature="e#194#210#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/items.py">
+        <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/baidu2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="285">
+              <caret line="16" column="30" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="16" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="98" column="25" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -39,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/voice/t.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+            <state relative-caret-position="895">
+              <caret line="113" selection-start-line="113" selection-end-line="113" />
               <folding>
                 <element signature="e#15#25#0" expanded="true" />
               </folding>
@@ -74,6 +102,10 @@
       <find>token</find>
       <find>voic</find>
       <find>scope</find>
+      <find>/art</find>
+      <find>json</find>
+      <find>params</find>
+      <find>save_file</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -85,10 +117,14 @@
         <option value="$PROJECT_DIR$/voice/init.sh" />
         <option value="$PROJECT_DIR$/voice/t.py" />
         <option value="$PROJECT_DIR$/voice/baidu_voice.py" />
+        <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py" />
+        <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py" />
+        <option value="$PROJECT_DIR$/voice/baidu.py" />
+        <option value="$PROJECT_DIR$/voice/main.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="273" />
     <option name="y" value="-24" />
     <option name="width" value="981" />
@@ -102,7 +138,40 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="news" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news" type="462c0819:PsiDirectoryNode" />
+              <item name="news_scrapy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news" type="462c0819:PsiDirectoryNode" />
+              <item name="news_scrapy" type="462c0819:PsiDirectoryNode" />
+              <item name="newspider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news" type="462c0819:PsiDirectoryNode" />
+              <item name="news_scrapy" type="462c0819:PsiDirectoryNode" />
+              <item name="newspider" type="462c0819:PsiDirectoryNode" />
+              <item name="newspider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news" type="462c0819:PsiDirectoryNode" />
+              <item name="voice" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -194,17 +263,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/voice/baidu_voice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
+          <folding>
+            <element signature="e#15#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="187">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/voice/t.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+        <state relative-caret-position="895">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
           <folding>
             <element signature="e#15#25#0" expanded="true" />
           </folding>
@@ -218,13 +297,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/voice/baidu_voice.py">
+    <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="79" column="37" lean-forward="true" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
+        <state relative-caret-position="401">
+          <caret line="98" column="25" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/baidu2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="182" column="46" selection-start-line="182" selection-start-column="34" selection-end-line="182" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="149" column="12" lean-forward="true" selection-start-line="149" selection-start-column="12" selection-end-line="149" selection-end-column="12" />
           <folding>
-            <element signature="e#15#25#0" expanded="true" />
+            <element signature="e#194#210#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voice/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="175" column="11" selection-start-line="175" selection-start-column="11" selection-end-line="175" selection-end-column="11" />
         </state>
       </provider>
     </entry>
