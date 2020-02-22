@@ -153,8 +153,12 @@ def opt(obj):
 def loopPipe():
     # 循环读取pipe管道中的json
     while True:
+        #如果没有写管道打开，将会阻塞在这里。如果有写管道打开：则开始是读取，如果写管道关闭：则会读取到空，continue结束本次循环，再次阻塞在这里。
         with open(FIFO, 'r') as rf:
             obj = rf.read()
+            if(len(obj) == 0):
+                continue
+        #对读取到的字符串对象进行操作
         opt(obj)
 
 if __name__ == '__main__':
