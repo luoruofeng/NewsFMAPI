@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
 import scrapy
-import logging
 import random
 from urllib.parse import urljoin
 from urllib.parse import urlparse
 import time
 from .. import items
 from scrapy.loader import ItemLoader
+from scrapy.log import logger
 import re
 import json
 
 class HuxiuSpider(scrapy.Spider):
     name = 'first_huxiu'
     allowed_domains = ['huxiu.com']
+
+
 
     def start_requests(self):
         headers = {
@@ -27,25 +29,25 @@ class HuxiuSpider(scrapy.Spider):
 
     def parse_list(self, response):
         if(response.status==200):
-            self.logger.info('first scrapy fetch page: %s', response.url)
+            logger.info('first_scrapy fetch page: %s', response.url)
             res_data = json.loads(response.body.decode('utf-8'))
             if res_data['success']:
                 data = res_data["data"]
                 if(data != None):
                     for item in data["dataList"]:
                         if(item["is_vip_column_article"] == True):
-                            self.logger.error('article is not free: %s', item["share_url"])
+                            logger.error('article is not free: %s', item["share_url"])
                             continue
                         else:
                             abs_url = "https://www.huxiu.com/article/"+item["aid"]+".html"
                             if abs_url is not None:
                                 yield scrapy.Request(abs_url, callback=self.parse_article)
         else:
-            self.logger.error('first scrapy fetch page: %s', response.url)
+            logger.error('first scrapy fetch page: %s', response.url)
 
     def parse_article(self, response):
         if(response.status==200):
-            self.logger.info('scrapy fetch page: %s', response.url)
+            logger.info('scrapy fetch page: %s', response.url)
 
             il = ItemLoader(item=items.Article(), response=response)
 
@@ -59,5 +61,5 @@ class HuxiuSpider(scrapy.Spider):
             yield il.load_item()
 
         else:
-            self.logger.error('FAILED! scrapy fetch page: %s', response.url)
+            logger.error('FAILED! scrapy fetch page: %s', response.url)
 

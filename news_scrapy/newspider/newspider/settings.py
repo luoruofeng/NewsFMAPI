@@ -22,6 +22,9 @@ USER_AGENT = 'Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML,
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
+LOG_LEVEL="WARNING"
+LOG_STDOUT=True
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
