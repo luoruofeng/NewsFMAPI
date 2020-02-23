@@ -4,6 +4,7 @@ import json
 import os
 import time
 import errno
+import logging
 IS_PY3 = sys.version_info.major == 3
 if IS_PY3:
     from urllib.request import urlopen
@@ -149,19 +150,43 @@ def opt(obj):
         print("tts api  error:" + result_str)
 
     print("result saved as :" + subtitle)
+    logging.info("result saved as :" + subtitle)
 
 def loopPipe():
     # 循环读取pipe管道中的json
     while True:
+        logging.info("waiting for new data be sent to pipe")
         #如果没有写管道打开，将会阻塞在这里。如果有写管道打开：则开始是读取，如果写管道关闭：则会读取到空，continue结束本次循环，再次阻塞在这里。
         with open(FIFO, 'r') as rf:
             obj = rf.read()
+            logging.info("read pipe, content : " + obj)
             if(len(obj) == 0):
                 continue
         #对读取到的字符串对象进行操作
         opt(obj)
 
+def init_log():
+    # 创建一个logging对象
+    logger = logging.getLogger()
+    # 创建一个文件对象  创建一个文件对象,以UTF-8 的形式写入 baidu_log.log 文件中
+    fh = logging.FileHandler('baidu_log.log', encoding='utf-8')
+    # 创建一个屏幕对象
+    sh = logging.StreamHandler()
+    # 配置显示格式  可以设置两个配置格式  分别绑定到文件和屏幕上
+    formatter = logging.Formatter('%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s')
+    fh.setFormatter(formatter)  # 将格式绑定到两个对象上
+    sh.setFormatter(formatter)
+
+    logger.addHandler(fh)  # 将两个句柄绑定到logger
+    logger.addHandler(sh)
+
+    logger.setLevel(10)  # 总开关
+    fh.setLevel(10)  # 写入文件的从10开始
+    sh.setLevel(30)  # 在屏幕显示的从30开始
+
 if __name__ == '__main__':
+    init_log()
+
     #创建文件夹存放音频文件
     if(os.path.exists(VOICE_DIR) == False):
         os.mkdir(VOICE_DIR)
