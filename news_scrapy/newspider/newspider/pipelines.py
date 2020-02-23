@@ -51,6 +51,8 @@ class ArticleContentHtmlPipeline(object):
         content = content.strip()
 
         content = re.sub(r'\(.*\)', "", content)
+        content = re.sub(r'图片来源.*?\s+', "", content)
+        content = re.sub(r'本文来自.*?\s+', "", content)
         # content = re.sub(r'（.*）', "",content)
         return content
 

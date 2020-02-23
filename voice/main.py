@@ -14,6 +14,7 @@ if IS_PY3:
     from urllib.parse import quote_plus
 import json
 from aip import AipSpeech
+import subprocess
 import threading
 
 """
@@ -113,6 +114,7 @@ def baidu_voice(params):
 
     return result_str,has_error
 
+
 #保存对象为音频
 def opt(obj):
     # json字符串 转 dict
@@ -123,11 +125,14 @@ def opt(obj):
     # 分割文字  百度能接受的最大长度是2048
     counter = 1
     current_index = 0
+
+    need_merge_dict = {title+FORMAT:[]}
     while True:
         if (len(tex) <= MAX_FONT):
             subtitle = title
         else:
             subtitle = title + str(counter)
+            need_merge_dict[title+FORMAT].append(subtitle+FORMAT)
         counter += 1
 
         part_text = tex[current_index:current_index + MAX_FONT]
@@ -151,6 +156,11 @@ def opt(obj):
 
         print("result saved as :" + subtitle)
         logging.info("result saved as :" + subtitle)
+
+    #合并较长音频
+    if (len(need_merge_dict[title+FORMAT]) > 0):
+        merge_voice(need_merge_dict,title+FORMAT)
+        delete_sub_voice()
 
 def loopPipe():
     # 循环读取pipe管道中的json
@@ -183,6 +193,36 @@ def init_log():
     logger.setLevel(10)  # 总开关
     fh.setLevel(10)  # 写入文件的从10开始
     sh.setLevel(30)  # 在屏幕显示的从30开始
+
+
+    # ffmpeg不支持MP3
+    # 所以安装ffmpeg时候需要先安装lame
+    #
+    # 合并命令：
+    # ffmpeg -i 马斯克：下一步我干啥，你猜1.mp3 -i 马斯克：下一步我干啥，你猜2.mp3 -i 马斯克：下一步我干啥，你猜3.mp3 -i 马斯克：下一步我干啥，你猜4.mp3 -filter_complex '[0:0] [1:0] concat=n=4:v=0:a=1 [a]' -map [a] new4.mp3
+    # n=4代表视频个数
+
+#need_merge_dict 是dict  key是标题 value是subtitle列表
+#如{"马斯克：下一步我干啥，你猜.mp3":
+# ["马斯克：下一步我干啥，你猜1.mp3",
+# "马斯克：下一步我干啥，你猜2.mp3",
+# "马斯克：下一步我干啥，你猜3.mp3",
+# "马斯克：下一步我干啥，你猜4.mp3",]}
+def merge_voice(need_merge_dict,title):
+    exec_str = "ffmpeg"
+
+    for input_voice in need_merge_dict[title]:
+        exec_str+=" -i"
+        exec_str+=(" "+VOICE_DIR+input_voice)
+
+    exec_str+=" -filter_complex '[0:0] [1:0] concat=n="+str(len(need_merge_dict[title]))+":v=0:a=1 [a]' -map [a]"
+    exec_str+=(" "+VOICE_DIR+title)
+    p = subprocess.Popen(exec_str,shell=True)
+    print(p.stdout.readlines())
+
+def delete_sub_voice(voices):
+    for voice in voices:
+        os.remove(VOICE_DIR+voice)
 
 if __name__ == '__main__':
     init_log()
