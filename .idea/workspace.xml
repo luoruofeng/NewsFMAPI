@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdde198b-dddb-4ac8-8e09-38dac8e98af6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_scrapy/newspider/newspider/spiders/first_huxiu.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_scrapy/newspider/newspider/spiders/first_huxiu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_scrapy/newspider/newspider/spiders/huxiu.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_scrapy/newspider/newspider/spiders/huxiu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+            <state relative-caret-position="161">
+              <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -91,13 +86,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/start.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
               <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/scrapy.cfg">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -151,11 +151,11 @@
         <option value="$PROJECT_DIR$/voice/baidu.py" />
         <option value="$PROJECT_DIR$/news_scrapy/newspider/main.py" />
         <option value="$PROJECT_DIR$/voice/main.py" />
-        <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py" />
         <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py" />
         <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/spiders/huxiu.py" />
         <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/spiders/first_huxiu.py" />
         <option value="$PROJECT_DIR$/start.sh" />
+        <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py" />
       </list>
     </option>
   </component>
@@ -197,14 +197,6 @@
               <item name="news_scrapy" type="462c0819:PsiDirectoryNode" />
               <item name="newspider" type="462c0819:PsiDirectoryNode" />
               <item name="newspider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="news" type="b2602c69:ProjectViewProjectNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-              <item name="news_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="newspider" type="462c0819:PsiDirectoryNode" />
-              <item name="newspider" type="462c0819:PsiDirectoryNode" />
-              <item name="spiders" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="news" type="b2602c69:ProjectViewProjectNode" />
@@ -365,13 +357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -426,6 +411,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/scrapy.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
         </state>
       </provider>
     </entry>
