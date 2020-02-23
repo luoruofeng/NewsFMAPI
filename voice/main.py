@@ -95,7 +95,7 @@ def fetch_token():
 
 def baidu_voice(params):
     data = urlencode(params)
-    print('test on Web Browser' + TTS_URL + '?' + data)
+    # print('test on Web Browser' + TTS_URL + '?' + data)
 
     req = Request(TTS_URL, data.encode('utf-8'))
     has_error = False
