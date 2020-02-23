@@ -162,9 +162,8 @@ def opt(obj):
     if (len(need_merge_dict[title+FORMAT]) > 0):
         try:
             merge_voice(need_merge_dict,title+FORMAT)
-            delete_sub_voice()
         except:
-            print("ffmpeg cause merge error!")
+            print("ffmpeg cause merge error or delete sub voice error!")
 
 def loopPipe():
     # 循环读取pipe管道中的json
@@ -177,7 +176,10 @@ def loopPipe():
             if(len(obj) == 0):
                 continue
         #对读取到的字符串对象进行操作
-        opt(obj)
+        try:
+            opt(obj)
+        except:
+            print("对读取到的字符串对象进行操作错误!")
 
 def init_log():
     # 创建一个logging对象
@@ -222,7 +224,12 @@ def merge_voice(need_merge_dict,title):
     exec_str+=" -filter_complex '[0:0] [1:0] concat=n="+str(len(need_merge_dict[title]))+":v=0:a=1 [a]' -map [a]"
     exec_str+=(" "+VOICE_DIR+title)
     p = subprocess.Popen(exec_str,shell=True)
-    print(p.stdout.readlines())
+    out, err = p.communicate()
+    print(out.decode())
+    # print(p.stdout.readlines())
+    status = p.wait()
+    print(str(status))
+    delete_sub_voice()
 
 def delete_sub_voice(voices):
     for voice in voices:

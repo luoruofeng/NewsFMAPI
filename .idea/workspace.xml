@@ -48,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/voice/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="132" column="29" lean-forward="true" selection-start-line="132" selection-start-column="29" selection-end-line="132" selection-end-column="29" />
+            <state relative-caret-position="370">
+              <caret line="230" column="20" selection-start-line="230" selection-start-column="20" selection-end-line="230" selection-end-column="20" />
               <folding>
                 <element signature="e#15#25#0" expanded="true" />
               </folding>
@@ -88,15 +88,6 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/init.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -108,7 +99,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>result</find>
       <find>精品音库</find>
       <find>errno</find>
       <find>token</find>
@@ -130,12 +120,15 @@
       <find>print(</find>
       <find>as</find>
       <find>dump</find>
-      <find>re.su</find>
       <find>LOG_LEVEL</find>
       <find>as</find>
       <find>merge_voice</find>
       <find>merge</find>
       <find>merg</find>
+      <find>opt</find>
+      <find>ffm</find>
+      <find>delete_sub_voice</find>
+      <find>re.su</find>
     </findStrings>
     <replaceStrings>
       <replace>logging</replace>
@@ -403,10 +396,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-319545905/time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/subprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="987" column="25" lean-forward="true" selection-start-line="987" selection-start-column="25" selection-end-line="987" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/voice/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="132" column="29" lean-forward="true" selection-start-line="132" selection-start-column="29" selection-end-line="132" selection-end-column="29" />
+        <state relative-caret-position="370">
+          <caret line="230" column="20" selection-start-line="230" selection-start-column="20" selection-end-line="230" selection-end-column="20" />
           <folding>
             <element signature="e#15#25#0" expanded="true" />
           </folding>
