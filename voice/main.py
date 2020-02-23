@@ -65,7 +65,7 @@ TOKEN_URL = 'http://openapi.baidu.com/oauth/2.0/token'
 SCOPE = 'audio_tts_post'  # 有此scope表示有tts能力，没有请在网页里勾选
 
 def fetch_token():
-    print("fetch token begin")
+    # print("fetch token begin")
     params = {'grant_type': 'client_credentials',
               'client_id': API_KEY,
               'client_secret': SECRET_KEY}
@@ -77,7 +77,7 @@ def fetch_token():
         f = urlopen(req, timeout=5)
         result_str = f.read()
     except URLError as err:
-        print('token http response http code : ' + str(err.code))
+        # print('token http response http code : ' + str(err.code))
         result_str = err.read()
     if (IS_PY3):
         result_str = result_str.decode()
@@ -107,7 +107,7 @@ def baidu_voice(params):
 
         has_error = ('content-type' not in headers.keys() or headers['content-type'].find('audio/') < 0)
     except  URLError as err:
-        print('asr http response http code : ' + str(err.code))
+        # print('asr http response http code : ' + str(err.code))
         result_str = err.read()
         has_error = True
 
@@ -138,19 +138,19 @@ def opt(obj):
         params = {'tok': token, 'tex': part_text, 'per': PER, 'spd': SPD, 'pit': PIT, 'vol': VOL, 'aue': AUE,
                   'cuid': CUID, 'lan': 'zh', 'ctp': 1}  # lan ctp 固定参数
 
-    result_str, has_error = baidu_voice(params)
+        result_str, has_error = baidu_voice(params)
 
-    # 音频文件 保存
-    save_file = "error.txt" if has_error else VOICE_DIR + subtitle + FORMAT
-    with open(save_file, 'wb') as of:
-        of.write(result_str)
+        # 音频文件 保存
+        save_file = "error.txt" if has_error else VOICE_DIR + subtitle + FORMAT
+        with open(save_file, 'wb') as of:
+            of.write(result_str)
 
-    if has_error:
-        result_str = str(result_str, 'utf-8')
-        print("tts api  error:" + result_str)
+        if has_error:
+            result_str = str(result_str, 'utf-8')
+            # print("tts api  error:" + result_str)
 
-    print("result saved as :" + subtitle)
-    logging.info("result saved as :" + subtitle)
+        print("result saved as :" + subtitle)
+        logging.info("result saved as :" + subtitle)
 
 def loopPipe():
     # 循环读取pipe管道中的json
