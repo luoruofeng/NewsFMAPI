@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 from urllib.parse import urlparse
 import time
 from .. import items
-from scrapy.log import logger
+from scrapy import log
 from scrapy.loader import ItemLoader
 import re
 
@@ -18,7 +18,7 @@ class HuxiuSpider(scrapy.Spider):
 
     def parse(self, response):
         if(response.status==200):
-            logger.info('scrapy fetch page: %s', response.url)
+            log.logger.info('scrapy fetch page: %s', response.url)
             hrefs = response.xpath('//*[contains(@class,"article-item")]//a/@href')
             for href in hrefs:
                 url = href.get()
@@ -31,11 +31,11 @@ class HuxiuSpider(scrapy.Spider):
                     if abs_url is not None:
                         yield scrapy.Request(abs_url,callback=self.parse_article)
         else:
-            logger.error('FAILED! scrapy fetch page: %s', response.url)
+            log.logger.error('FAILED! scrapy fetch page: %s', response.url)
 
     def parse_article(self, response):
         if(response.status==200):
-            logger.info('scrapy fetch page: %s', response.url)
+            log.logger.info('scrapy fetch page: %s', response.url)
 
             il = ItemLoader(item=items.Article(), response=response)
 
@@ -49,5 +49,5 @@ class HuxiuSpider(scrapy.Spider):
             yield il.load_item()
 
         else:
-            logger.error('FAILED! scrapy fetch page: %s', response.url)
+            log.logger.error('FAILED! scrapy fetch page: %s', response.url)
 
