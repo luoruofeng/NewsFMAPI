@@ -163,7 +163,7 @@ class FifoPipeline(object):
         pass
 
     def process_item(self, item, spider):
-        item_str = json.dumps(dict(item),ensure_ascii=False,encoding="UTF-8")
+        item_str = json.dumps(dict(item),ensure_ascii=False)
         logging.info("serialize object to json string. url : \n" + item.get("url"))
         with open(self.fifo_name, "w") as f:
             f.write(item_str)
