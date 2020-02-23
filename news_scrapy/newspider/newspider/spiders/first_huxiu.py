@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 import time
 from .. import items
 from scrapy.loader import ItemLoader
-from scrapy import log
+import logging
 import re
 import json
 
@@ -29,25 +29,25 @@ class HuxiuSpider(scrapy.Spider):
 
     def parse_list(self, response):
         if(response.status==200):
-            log.logger.info('first_scrapy fetch page: %s', response.url)
+            logging.log(logging.INFO,'first_scrapy fetch page: %s', response.url)
             res_data = json.loads(response.body.decode('utf-8'))
             if res_data['success']:
                 data = res_data["data"]
                 if(data != None):
                     for item in data["dataList"]:
                         if(item["is_vip_column_article"] == True):
-                            log.logger.error('article is not free: %s', item["share_url"])
+                            logging.log(logging.ERROR,'article is not free: %s', item["share_url"])
                             continue
                         else:
                             abs_url = "https://www.huxiu.com/article/"+item["aid"]+".html"
                             if abs_url is not None:
                                 yield scrapy.Request(abs_url, callback=self.parse_article)
         else:
-            log.logger.error('first scrapy fetch page: %s', response.url)
+            logging.log(logging.ERROR,'first scrapy fetch page: %s', response.url)
 
     def parse_article(self, response):
         if(response.status==200):
-            log.logger.info('scrapy fetch page: %s', response.url)
+            logging.log(logging.INFO,'scrapy fetch page: %s', response.url)
 
             il = ItemLoader(item=items.Article(), response=response)
 
@@ -61,5 +61,5 @@ class HuxiuSpider(scrapy.Spider):
             yield il.load_item()
 
         else:
-            log.logger.error('FAILED! scrapy fetch page: %s', response.url)
+            logging.log(logging.ERROR,'FAILED! scrapy fetch page: %s', response.url)
 

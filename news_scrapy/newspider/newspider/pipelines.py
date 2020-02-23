@@ -12,7 +12,7 @@ import errno
 import os
 import json
 from scrapy.exceptions import DropItem
-from scrapy import log
+import logging
 
 class NewspiderPipeline(object):
     def process_item(self, item, spider):
@@ -28,13 +28,13 @@ class ArticleContentLenPipeline(object):
         article_content = item.get("content")
         if(article_content):
             if (len(article_content) < MIN_ARTICLE_LEN):
-                log.logger.warning("article content is too short. url is :\n"+item.get("url"))
+                logging.warning("article content is too short. url is :\n"+item.get("url"))
                 raise DropItem("article content is too short. url is :\n"+item.get("url"))
             else:
-                log.logger.info("checked article lenth. url is :\n" + item.get("url"))
+                logging.info("checked article lenth. url is :\n" + item.get("url"))
                 return item
         else:
-            log.logger.warning("article content is Null. content is :\n" + item)
+            logging.warning("article content is Null. content is :\n" + item)
             raise DropItem("article content is Null. content is :\n" + item)
 
 #去掉html标签，*，空格
@@ -68,11 +68,11 @@ class ArticleContentHtmlPipeline(object):
         article_content_txt = self.pureHtml(article_content)
         article_content_txt = self.article_filter(article_content_txt)
         if (len(article_content_txt) < MIN_ARTICLE_LEN):
-            log.logger.warning("article content is too short. url is :\n" + item.get("url"))
+            logging.warning("article content is too short. url is :\n" + item.get("url"))
             raise DropItem("article content is too short. url is :\n"+item.get("url"))
 
         item["content"]=article_content_txt
-        log.logger.info("format content of article. url is :\n"+item.get("url"))
+        logging.info("format content of article. url is :\n"+item.get("url"))
         return item
 
 #item 保存到mongo
@@ -100,7 +100,7 @@ class MongoPipeline(object):
 
     def process_item(self, item, spider):
         self.db[self.collection_name].insert_one(dict(item))
-        log.logger.info("saved item to mongo: %s" % item.get("url"))
+        logging.info("saved item to mongo: %s" % item.get("url"))
         return item
 
 
@@ -121,19 +121,19 @@ class DuplicatesPipeline(object):
     def open_spider(self, spider):
         self.client = pymongo.MongoClient(self.mongo_uri)
         self.db = self.client[self.mongo_db]
-        log.logger.info("open mongo client!")
+        logging.info("open mongo client!")
 
     def close_spider(self, spider):
         self.client.close()
-        log.logger.info("close mongo client!")
+        logging.info("close mongo client!")
 
     def process_item(self, item, spider):
         result = self.db[self.collection_name].find_one({'title':item['title']})
         if result is not None:
-            log.logger.warning("Duplicate item found: \n%s" % item.get("url"))
+            logging.warning("Duplicate item found: \n%s" % item.get("url"))
             raise DropItem("Duplicate item found: \n%s" % item.get("url"))
         else:
-            log.logger.info("checked item isn't duplication: \n%s" % item.get("url"))
+            logging.info("checked item isn't duplication: \n%s" % item.get("url"))
             return item
 
 
@@ -153,10 +153,10 @@ class FifoPipeline(object):
     def open_spider(self, spider):
         try:
             os.mkfifo(self.fifo_name)
-            log.logger.info("create pipe file")
+            logging.info("create pipe file")
         except OSError as e:
             if (e.errno != errno.EEXIST):
-                log.logger.warning("pipe file is already exists!")
+                logging.warning("pipe file is already exists!")
                 raise
 
     def close_spider(self, spider):
@@ -164,8 +164,8 @@ class FifoPipeline(object):
 
     def process_item(self, item, spider):
         item_str = json.dumps(dict(item),ensure_ascii=False,encoding="UTF-8")
-        log.logger.info("serialize object to json string. url : \n" + item.get("url"))
+        logging.info("serialize object to json string. url : \n" + item.get("url"))
         with open(self.fifo_name, "w") as f:
             f.write(item_str)
 
-        log.logger.info("send to pipe. url : \n"+item.get("url"))
+        logging.info("send to pipe. url : \n"+item.get("url"))
