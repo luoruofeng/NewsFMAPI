@@ -128,17 +128,18 @@ def opt(obj):
 
     need_merge_dict = {title+FORMAT:[]}
     while True:
+        part_text = tex[current_index:current_index + MAX_FONT]
+        current_index += MAX_FONT
+        if (part_text == ""):
+            break
+
         if (len(tex) <= MAX_FONT):
             subtitle = title
         else:
             subtitle = title + str(counter)
             need_merge_dict[title+FORMAT].append(subtitle+FORMAT)
-        counter += 1
 
-        part_text = tex[current_index:current_index + MAX_FONT]
-        current_index += MAX_FONT
-        if (part_text == ""):
-            break
+        counter += 1
 
         params = {'tok': token, 'tex': part_text, 'per': PER, 'spd': SPD, 'pit': PIT, 'vol': VOL, 'aue': AUE,
                   'cuid': CUID, 'lan': 'zh', 'ctp': 1}  # lan ctp 固定参数
@@ -159,8 +160,11 @@ def opt(obj):
 
     #合并较长音频
     if (len(need_merge_dict[title+FORMAT]) > 0):
-        merge_voice(need_merge_dict,title+FORMAT)
-        delete_sub_voice()
+        try:
+            merge_voice(need_merge_dict,title+FORMAT)
+            delete_sub_voice()
+        except:
+            print("ffmpeg cause merge error!")
 
 def loopPipe():
     # 循环读取pipe管道中的json
