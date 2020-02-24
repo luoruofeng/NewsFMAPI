@@ -177,14 +177,15 @@ def loopPipe():
         # 就算写管道的打开频率比读管道高，也不会有问题，因为读管道里，有判断len(data)。如果为空，表示写管道已经关闭，一次写入完成，写管道再次阻塞，等到读管道再次运行到这里，写管道才能再次写入。
         with open(FIFO, 'r') as rf:
             obj = rf.read()
-            logging.info("read pipe... font size:"+len(obj))
+            logging.info("read pipe... font size:"+str(len(obj)))
             if(len(obj) == 0):
                 continue
         #对读取到的字符串对象进行操作
         try:
             opt(obj)
-        except:
+        except Exception as e:
             print("对读取到的字符串对象进行操作错误!")
+            print(e)
 
 def init_log():
     # 创建一个logging对象
