@@ -118,6 +118,7 @@ def baidu_voice(params):
 #保存对象为音频
 def opt(obj):
     # json字符串 转 dict
+    print(obj)
     obj_dict = json.loads(obj, encoding="UTF-8")
     tex = obj_dict["content"]
     title = obj_dict["title"]
@@ -160,19 +161,23 @@ def opt(obj):
 
     #合并较长音频
     if (len(need_merge_dict[title+FORMAT]) > 0):
-        try:
-            merge_voice(need_merge_dict,title+FORMAT)
-        except:
-            print("ffmpeg cause merge error or delete sub voice error!")
+        merge_voice(need_merge_dict,title+FORMAT)
+        delete_sub_voice(need_merge_dict[title+FORMAT])
 
 def loopPipe():
     # 循环读取pipe管道中的json
     while True:
         logging.info("waiting for new data be sent to pipe")
-        #如果没有写管道打开，将会阻塞在这里。如果有写管道打开：则开始是读取，如果写管道关闭：则会读取到空，continue结束本次循环，再次阻塞在这里。
+        #如果没有写管道打开，将会阻塞在这里。
+        # 如果有写管道打开：则开始是读取.
+        # 如果写管道关闭：则会读取到空
+        # continue结束本次循环，再次阻塞在这里。
+        #写管道的 最多一个进程 因为如果写管道有多个进程并且速度比读管道的频率要高，在读管道打开瞬间，所有进程上的写管道都将内容写入同一个文件，读取后，将分不清写入的个数。
+        #如果写管道在一个进程上，而读管道可以在多个进程上，因为写管道打开的时候只会有其中一个进程上的读管道与之对应。
+        # 就算写管道的打开频率比读管道高，也不会有问题，因为读管道里，有判断len(data)。如果为空，表示写管道已经关闭，一次写入完成，写管道再次阻塞，等到读管道再次运行到这里，写管道才能再次写入。
         with open(FIFO, 'r') as rf:
             obj = rf.read()
-            logging.info("read pipe, content : " + obj)
+            logging.info("read pipe... font size:"+len(obj))
             if(len(obj) == 0):
                 continue
         #对读取到的字符串对象进行操作
@@ -224,16 +229,17 @@ def merge_voice(need_merge_dict,title):
     exec_str+=" -filter_complex '[0:0] [1:0] concat=n="+str(len(need_merge_dict[title]))+":v=0:a=1 [a]' -map [a]"
     exec_str+=(" "+VOICE_DIR+title)
     p = subprocess.Popen(exec_str,shell=True)
+    #communicate或wait方法可以等待合并完成后继续执行，不然Popen是个非阻塞的方法,如果不用Popen，也用阻塞式的方法call。
     out, err = p.communicate()
-    print(out.decode())
-    # print(p.stdout.readlines())
-    status = p.wait()
-    print(str(status))
-    delete_sub_voice()
+
 
 def delete_sub_voice(voices):
     for voice in voices:
-        os.remove(VOICE_DIR+voice)
+        try:
+            os.remove(VOICE_DIR+voice)
+        except Exception as e:
+            print("delete failed!!")
+            print(e)
 
 if __name__ == '__main__':
     init_log()
