@@ -40,7 +40,11 @@ class ArticleContentLenPipeline(object):
 #去掉html标签，*，空格
 class ArticleContentHtmlPipeline(object):
 
-    def pureHtml(self,article_content):
+    def pureTitle(self,article_title):
+        title = re.sub(r'【虎嗅早报】', "", article_title)
+        return title
+
+    def pureContent(self,article_content):
         converter = html2text.HTML2Text()
         converter.ignore_links = True
         converter.ignore_images = True
@@ -54,6 +58,7 @@ class ArticleContentHtmlPipeline(object):
         content = re.sub(r'图片来源.*?\s+', "", content)
         content = re.sub(r'本文来自.*?\s+', "", content)
         content = re.sub(r'本文来自.*?，', "", content)
+
         # content = re.sub(r'（.*）', "",content)
         return content
 
@@ -68,13 +73,15 @@ class ArticleContentHtmlPipeline(object):
 
     def process_item(self, item, spider):
         article_content = item.get("content")
-        article_content_txt = self.pureHtml(article_content)
+        title = self.pureTitle(item.get("title"))
+        article_content_txt = self.pureContent(article_content)
         article_content_txt = self.article_filter(article_content_txt)
         if (len(article_content_txt) < MIN_ARTICLE_LEN):
             logging.warning("article content is too short. url is :\n" + item.get("url"))
             raise DropItem("article content is too short. url is :\n"+item.get("url"))
 
         item["content"]=article_content_txt
+        item["title"]=title
         logging.info("format content of article. url is :\n"+item.get("url"))
         return item
 

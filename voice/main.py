@@ -2,6 +2,7 @@
 import sys
 import json
 import os
+
 import time
 import errno
 import logging
@@ -16,6 +17,13 @@ import json
 from aip import AipSpeech
 import subprocess
 import threading
+
+#项目的根目录 /voice
+BASE_PATH=os.path.dirname(os.path.abspath(__file__))
+#将根目录添加到sys.path 系统便可以查找到该项目下的模块
+sys.path.append(BASE_PATH)
+
+import mongo_opt
 
 """
 这个程序（进程）将一直去读取pipe（有名管道）
@@ -186,6 +194,7 @@ def loopPipe():
         except Exception as e:
             print("对读取到的字符串对象进行操作错误!")
             print(e)
+            mongo_opt.setUnavailable(obj["url"])
 
 def init_log():
     # 创建一个logging对象

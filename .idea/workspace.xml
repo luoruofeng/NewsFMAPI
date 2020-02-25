@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdde198b-dddb-4ac8-8e09-38dac8e98af6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/voice/mongo_opt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/voice/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/voice/main.py" afterDir="false" />
     </list>
@@ -16,20 +18,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+            <state relative-caret-position="228">
+              <caret line="87" column="14" lean-forward="true" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
               <folding>
                 <element signature="e#194#210#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -49,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/voice/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="73" column="16" lean-forward="true" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+            <state relative-caret-position="118">
+              <caret line="193" column="30" lean-forward="true" selection-start-line="193" selection-start-column="30" selection-end-line="193" selection-end-column="30" />
               <folding>
                 <element signature="e#15#25#0" expanded="true" />
               </folding>
@@ -100,7 +93,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>voic</find>
       <find>scope</find>
       <find>/art</find>
       <find>json</find>
@@ -109,7 +101,6 @@
       <find>with o</find>
       <find>loopPipe</find>
       <find>im</find>
-      <find>log</find>
       <find>log.logger</find>
       <find>raise</find>
       <find>print</find>
@@ -120,7 +111,6 @@
       <find>LOG_LEVEL</find>
       <find>merge_voice</find>
       <find>merg</find>
-      <find>opt</find>
       <find>re.su</find>
       <find>FIFO</find>
       <find>subpro</find>
@@ -130,6 +120,9 @@
       <find>delete_sub_voice</find>
       <find>delete</find>
       <find>data</find>
+      <find>ArticleContentHtmlPipeline</find>
+      <find>log</find>
+      <find>opt</find>
     </findStrings>
     <replaceStrings>
       <replace>logging</replace>
@@ -150,12 +143,13 @@
         <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py" />
         <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/spiders/first_huxiu.py" />
         <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/spiders/huxiu.py" />
-        <option value="$PROJECT_DIR$/voice/main.py" />
         <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py" />
+        <option value="$PROJECT_DIR$/voice/mongo_opt.py" />
+        <option value="$PROJECT_DIR$/voice/main.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="273" />
     <option name="y" value="-24" />
     <option name="width" value="981" />
@@ -169,7 +163,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,6 +184,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -209,7 +203,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.mongo_opt">
     <configuration name="baidu_voice" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="news" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -231,8 +225,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="mongo_opt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="news" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/voice" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/voice/mongo_opt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.mongo_opt" />
         <item itemvalue="Python.baidu_voice" />
       </list>
     </recent_temporary>
@@ -259,7 +275,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3285968" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3285968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -346,23 +362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/spiders/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -386,10 +385,37 @@
     <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/scrapy.cfg">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/voice/mongo_opt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/voice/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="73" column="16" lean-forward="true" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+        <state relative-caret-position="118">
+          <caret line="193" column="30" lean-forward="true" selection-start-line="193" selection-start-column="30" selection-end-line="193" selection-end-column="30" />
           <folding>
             <element signature="e#15#25#0" expanded="true" />
           </folding>
@@ -398,8 +424,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+        <state relative-caret-position="228">
+          <caret line="87" column="14" lean-forward="true" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
           <folding>
             <element signature="e#194#210#0" expanded="true" />
           </folding>
