@@ -2,5 +2,5 @@
 Description=get obj from PIPE,and translate to voice by baidu api.
 
 [Service]
-WorkingDirectory=/news/voice/
-ExecStart=python /news/voice//main.py
+WorkingDirectory=/NewsFMAPI/news/voice/
+ExecStart=python /NewsFMAPI/news/voice//main.py

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdde198b-dddb-4ac8-8e09-38dac8e98af6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/new-scrapy.service" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-voice.service" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new-scrapy.service" beforeDir="false" afterPath="$PROJECT_DIR$/new-scrapy.service" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new-voice.service" beforeDir="false" afterPath="$PROJECT_DIR$/new-voice.service" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,20 +25,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/new-scrapy.service">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="5" selection-end-column="52" />
+            <state relative-caret-position="95">
+              <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new-voice.service">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="66" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
+            <state relative-caret-position="95">
+              <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -163,8 +162,8 @@
         <option value="$PROJECT_DIR$/news_scrapy/newspider/newspider/pipelines.py" />
         <option value="$PROJECT_DIR$/voice/mongo_opt.py" />
         <option value="$PROJECT_DIR$/voice/main.py" />
-        <option value="$PROJECT_DIR$/new-scrapy.service" />
         <option value="$PROJECT_DIR$/new-voice.service" />
+        <option value="$PROJECT_DIR$/new-scrapy.service" />
       </list>
     </option>
   </component>
@@ -452,17 +451,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new-scrapy.service">
+    <entry file="file://$PROJECT_DIR$/new-voice.service">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="5" selection-end-column="52" />
+        <state relative-caret-position="95">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new-voice.service">
+    <entry file="file://$PROJECT_DIR$/new-scrapy.service">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="66" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
+        <state relative-caret-position="95">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
         </state>
       </provider>
     </entry>
