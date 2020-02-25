@@ -2,5 +2,5 @@
 Description=scrapy crawl first_huxiu and huxiu articles,save to mongodb and send obj to PIPE.
 
 [Service]
-WorkingDirectory=/NewsFMAPI/news/news_scrapy/newspider/
-ExecStart=python /NewsFMAPI/news/news_scrapy/newspider/main.py
+WorkingDirectory=/NewsFMAPI/news_scrapy/newspider/
+ExecStart=python /NewsFMAPI/news_scrapy/newspider/main.py
