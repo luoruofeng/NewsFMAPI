@@ -235,12 +235,10 @@ def merge_voice(need_merge_dict,title):
     for input_voice in need_merge_dict[title]:
         exec_str+=" -i"
         input_voice = input_voice.replace(' ','\\ ')
-        print("*"*222)
-        print(input_voice)
         exec_str+=(" "+VOICE_DIR+input_voice)
 
     exec_str+=" -filter_complex '[0:0] [1:0] concat=n="+str(len(need_merge_dict[title]))+":v=0:a=1 [a]' -map [a]"
-    exec_str+=(" "+VOICE_DIR+title)
+    exec_str+=(" "+VOICE_DIR+title.replace(' ','\\ '))
     p = subprocess.Popen(exec_str,shell=True)
     #communicate或wait方法可以等待合并完成后继续执行，不然Popen是个非阻塞的方法,如果不用Popen，也用阻塞式的方法call。
     out, err = p.communicate()
