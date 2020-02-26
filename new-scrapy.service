@@ -3,4 +3,4 @@ Description=scrapy crawl first_huxiu and huxiu articles,save to mongodb and send
 
 [Service]
 WorkingDirectory=/NewsFMAPI/news_scrapy/newspider/
-ExecStart=./run.sh
+ExecStart=/bin/bash run.sh

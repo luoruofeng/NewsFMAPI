@@ -1,3 +1,3 @@
 #/bin/bash
 
-python ./main.py
+nohup python ./main.py </dev/null 1>>/NewsFMAPI/baidu.out 2>>/NewsFMAPI/baidu.out &
