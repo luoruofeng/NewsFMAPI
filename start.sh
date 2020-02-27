@@ -10,6 +10,6 @@ cd $(pwd)/news_scrapy/newspider
 echo -e "进入$(pwd)\n"
 echo -e "运行scrapy项目\n"
 `chmod 774 ./main.py`
-`nohup python3 ./main.py -s $(pwd)/../../srcapy.out </dev/null 1>>/dev/null 2>>/dev/null &`
+`nohup python3 ./main.py -s $(pwd)/srcapy.out </dev/null 1>>/dev/null 2>>/dev/null &`
 cd $(pwd)/../../
 echo -e "回到目录$(pwd)\n"
