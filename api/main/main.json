@@ -1,0 +1,19 @@
+{
+     "API port":"provide api port number",
+     "apiPort":8888,
+
+     "API read timeout":"millisecond",
+     "readTimeout":5000,
+
+     "API write timeout":"millisecond",
+     "writeTimeout":5000,
+     
+     "static dir":"static file dir",
+     "staticDir":"./webroot",
+
+     "mongo addr":"use mongo URI",
+     "mongoUri":"mongodb://39.108.74.74:27017",
+
+     "mongo connection timeout":"millisecond",
+     "mongoConnectionTimeout":5000
+}

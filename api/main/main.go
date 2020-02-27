@@ -11,6 +11,11 @@ func main() {
 	var (
 		err error
 	)
+
+	if err = api.InitConfig("./main.json"); err != nil {
+		goto ERR
+	}
+
 	if err = api.InitApiServer(); err != nil {
 		goto ERR
 	}

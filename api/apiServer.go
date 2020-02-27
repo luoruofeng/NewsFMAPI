@@ -3,6 +3,7 @@ package api
 import (
 	"net"
 	"net/http"
+	"strconv"
 	"time"
 )
 
@@ -33,18 +34,18 @@ func InitApiServer() (err error) {
 	mux.HandleFunc("/api/show", handleShow)
 
 	//static file
-	staticDir = http.Dir("")
+	staticDir = http.Dir(G_config.StaticDir)
 	staticHandler = http.FileServer(staticDir)
 	mux.Handle("/", http.StripPrefix("/", staticHandler))
 
-	if listener, err = net.Listen("tcp", ":"+"8888"); err != nil {
+	if listener, err = net.Listen("tcp", ":"+strconv.Itoa(G_config.ApiPort)); err != nil {
 		return
 	}
 
 	//create http server
 	httpServer = &http.Server{
-		ReadTimeout:  time.Duration(5) * time.Millisecond,
-		WriteTimeout: time.Duration(5) * time.Millisecond,
+		ReadTimeout:  time.Duration(G_config.ReadTimeout) * time.Millisecond,
+		WriteTimeout: time.Duration(G_config.WriteTimeout) * time.Millisecond,
 		Handler:      mux,
 	}
 
