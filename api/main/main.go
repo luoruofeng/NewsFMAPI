@@ -20,6 +20,10 @@ func main() {
 		goto ERR
 	}
 
+	if err = api.InitArticleMgr(); err != nil {
+		goto ERR
+	}
+
 	for {
 		time.Sleep(2 * time.Second)
 	}
