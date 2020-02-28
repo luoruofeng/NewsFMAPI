@@ -3,4 +3,4 @@ Description=scrapy crawl first_huxiu and huxiu articles,save to mongodb and send
 
 [Service]
 WorkingDirectory=/NewsFMAPI/news_scrapy/newspider/
-ExecStart=/bin/bash run.sh
+ExecStart=/usr/bin/python3 main.py  </dev/null 1>>/NewsFMAPI/scrapy.out 2>>/NewsFMAPI/scrapy.out`
