@@ -72,8 +72,9 @@ ITEM_PIPELINES = {
     'newspider.pipelines.ArticleContentLenPipeline': 1,
     'newspider.pipelines.DuplicatesPipeline': 2,
     'newspider.pipelines.ArticleContentHtmlPipeline': 3,
-    'newspider.pipelines.MongoPipeline': 4,
-    'newspider.pipelines.FifoPipeline':5,
+    'newspider.pipelines.CheckAndSetTimePipeline':4,
+    'newspider.pipelines.MongoPipeline': 5,
+    'newspider.pipelines.FifoPipeline':6,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

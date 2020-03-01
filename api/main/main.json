@@ -9,7 +9,7 @@
      "writeTimeout":5000,
      
      "static dir":"static file dir",
-     "staticDir":"./webroot",
+     "staticDir":"./web",
 
      "mongo addr":"use mongo URI",
      "mongoUri":"mongodb://39.108.74.74:27017",

@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+
+	"github.com/luoruofeng/NewsFMAPI/api/common"
 )
 
 type ApiServer struct {
@@ -20,6 +22,28 @@ func handleShow(resp http.ResponseWriter, r *http.Request) {
 	resp.Write([]byte("test"))
 }
 
+func handleNewTop10(resp http.ResponseWriter, r *http.Request) {
+	var (
+		articles []common.Article
+		err      error
+		response []byte
+	)
+	if articles, err = G_articleMrg.GetTop10(); err != nil {
+		goto ERR
+	}
+
+	if response, err = common.BuildResponse(0, "", articles); err != nil {
+		goto ERR
+	}
+	resp.WriteHeader(http.StatusOK)
+	resp.Write(response)
+	return
+ERR:
+	if response, err = common.BuildResponse(-1, err.Error(), nil); err != nil {
+		resp.Write(response)
+	}
+}
+
 func InitApiServer() (err error) {
 	var (
 		mux           *http.ServeMux
@@ -32,6 +56,7 @@ func InitApiServer() (err error) {
 	//config route
 	mux = http.NewServeMux()
 	mux.HandleFunc("/api/show", handleShow)
+	mux.HandleFunc("/api/top10", handleNewTop10)
 
 	//static file
 	staticDir = http.Dir(G_config.StaticDir)

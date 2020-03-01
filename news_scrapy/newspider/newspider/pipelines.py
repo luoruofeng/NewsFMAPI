@@ -13,6 +13,8 @@ import os
 import json
 from scrapy.exceptions import DropItem
 import logging
+from datetime import datetime
+import time
 
 class NewspiderPipeline(object):
     def process_item(self, item, spider):
@@ -179,3 +181,19 @@ class FifoPipeline(object):
             f.write(item_str)
 
         logging.info("send to pipe. url : \n"+item.get("url"))
+
+
+#将item中的时间time字段转化为int
+class CheckAndSetTimePipeline(object):
+    def __init__(self):
+        self.str_format = "%Y-%m-%d %H:%M"
+
+    def process_item(self, item, spider):
+        time_str = item["time"]
+        try:
+            t = time.strptime(time_str,self.str_format)
+            item["time"]= int(time.mktime(t))
+        except:
+            item["time"] = int(time.mktime(time.time()))
+
+        logging.info("set time. url : \n"+item.get("url")+" time:"+item["time"])
