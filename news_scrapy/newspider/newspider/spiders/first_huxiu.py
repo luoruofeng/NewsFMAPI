@@ -23,7 +23,7 @@ class HuxiuSpider(scrapy.Spider):
         }
         data = {
             'platform': 'www',
-            'pagesize': '30'
+            'pagesize': '200'
         }
         yield scrapy.FormRequest('https://article-api.huxiu.com/web/article/articleList', dont_filter=True,method='POST', headers=headers, formdata=data, callback = self.parse_list)
 
