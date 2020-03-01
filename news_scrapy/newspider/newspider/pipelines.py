@@ -196,6 +196,6 @@ class CheckAndSetTimePipeline(object):
         except:
             item["time"] = int(time.mktime(time.time()))
 
-        logging.info("set time. url : \n"+item.get("url")+" time:"+item["time"])
+        logging.info("set time. url : \n"+item.get("url")+" time:"+str(item["time"]))
 
         return item
