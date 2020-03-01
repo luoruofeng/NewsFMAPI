@@ -197,3 +197,5 @@ class CheckAndSetTimePipeline(object):
             item["time"] = int(time.mktime(time.time()))
 
         logging.info("set time. url : \n"+item.get("url")+" time:"+item["time"])
+
+        return item
