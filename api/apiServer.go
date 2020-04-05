@@ -1,6 +1,8 @@
 package api
 
 import (
+	"html/template"
+	"log"
 	"net"
 	"net/http"
 	"strconv"
@@ -22,6 +24,35 @@ func handleShow(resp http.ResponseWriter, r *http.Request) {
 	resp.Write([]byte("test"))
 }
 
+func handleIndex(resp http.ResponseWriter, r *http.Request) {
+	var (
+		articles []common.Article
+		tmp      *template.Template
+		err      error
+		response []byte
+	)
+	tmp = template.New("index.html")
+	if tmp, err = tmp.ParseFiles(G_config.StaticDir + "/index.html"); err != nil {
+		log.Fatal(err)
+		goto ERR
+	}
+
+	if articles, err = G_articleMrg.GetToday(); err != nil {
+		log.Fatal(err)
+		goto ERR
+	}
+
+	if err = tmp.Execute(resp, articles); err != nil {
+		log.Fatal(err)
+		goto ERR
+	}
+	return
+ERR:
+	if response, err = common.BuildResponse(-1, err.Error(), nil); err != nil {
+		resp.Write(response)
+	}
+}
+
 func handleNewTop10(resp http.ResponseWriter, r *http.Request) {
 	var (
 		articles []common.Article
@@ -29,6 +60,28 @@ func handleNewTop10(resp http.ResponseWriter, r *http.Request) {
 		response []byte
 	)
 	if articles, err = G_articleMrg.GetTop10(); err != nil {
+		goto ERR
+	}
+
+	if response, err = common.BuildResponse(0, "", articles); err != nil {
+		goto ERR
+	}
+	resp.WriteHeader(http.StatusOK)
+	resp.Write(response)
+	return
+ERR:
+	if response, err = common.BuildResponse(-1, err.Error(), nil); err != nil {
+		resp.Write(response)
+	}
+}
+
+func handleGetToday(resp http.ResponseWriter, r *http.Request) {
+	var (
+		articles []common.Article
+		err      error
+		response []byte
+	)
+	if articles, err = G_articleMrg.GetToday(); err != nil {
 		goto ERR
 	}
 
@@ -57,6 +110,8 @@ func InitApiServer() (err error) {
 	mux = http.NewServeMux()
 	mux.HandleFunc("/api/show", handleShow)
 	mux.HandleFunc("/api/top10", handleNewTop10)
+	mux.HandleFunc("/api/today", handleGetToday)
+	mux.HandleFunc("/api/index", handleIndex)
 
 	//static file
 	staticDir = http.Dir(G_config.StaticDir)

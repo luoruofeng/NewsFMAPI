@@ -80,3 +80,46 @@ func (articleMgr *ArticleMgr) GetTop10() (articles []common.Article, err error) 
 	}
 	return
 }
+
+func (articleMgr *ArticleMgr) GetToday() (articles []common.Article, err error) {
+	var (
+		ctx       context.Context
+		cursor    *mongo.Cursor
+		startTime time.Time
+		year      int
+		month     time.Month
+		day       int
+	)
+	if err = articleMgr.client.Ping(nil, nil); err != nil {
+		fmt.Println(err)
+	}
+
+	ctx, _ = context.WithTimeout(context.Background(), time.Duration(30)*time.Second)
+	// if cursor, err = articleMgr.articleCollection.Find(ctx, bson.D{{"foo", "bar"}, {"hello", "world"}}); err != nil {
+
+	year, month, day = time.Now().Date()
+	startTime = time.Date(year, month, day, 0, 0, 0, 0, time.Local)
+
+	if cursor, err = articleMgr.articleCollection.Find(ctx, bson.D{{"time", bson.D{{"$gte", startTime.Unix()}}}}); err != nil {
+		log.Fatal(err)
+		return
+	}
+	defer cursor.Close(ctx)
+	articles = make([]common.Article, 0)
+	for cursor.Next(ctx) {
+		//可以使用bson.M或struct做反序列化
+		// var m bson.M
+		var result common.Article
+
+		if err = cursor.Decode(&result); err != nil {
+			log.Fatal(err)
+		}
+		//可以使用bson.M
+		// if err = cursor.Decode(&m); err != nil {
+		// 	log.Fatal(err)
+		// }
+
+		articles = append(articles, result)
+	}
+	return
+}
